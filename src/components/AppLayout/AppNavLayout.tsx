@@ -37,7 +37,7 @@ import { SlippageToleranceSettingField } from './components/SlippageToleranceSet
 import { VersionedTransactionSettingField } from './components/VersionedTransactionSettingField'
 // import { TransactionFeeSetting } from './components/TransactionFeeSetting'
 import { PriorityButton } from './components/PriorityButton'
-import DisclaimerModal from './components/DisclaimerModal'
+// import DisclaimerModal from './components/DisclaimerModal'
 import { keyframes } from '@emotion/react'
 import AppVersion from './AppVersion'
 
@@ -209,7 +209,7 @@ function AppNavLayout({
       >
         {children}
       </Box>
-      <DisclaimerModal />
+      {/* <DisclaimerModal /> */}
       <Mobile>
         <Box className="mobile_bottom_navbar" flex="none">
           <MobileBottomNavbar />
