@@ -58,7 +58,7 @@ const MyApp = ({ Component, pageProps, lng, breakPoints, ...props }: AppProps & 
         <meta property="og:locale" content="en" />
         {/* <meta property="og:site_name" content="Raydium" /> */}
         {/* <meta property="og:title" content="Swap | Raydium" /> */}
-        <title>{pageProps?.title ? `${pageProps.title} Moon boys` : 'Moon boys'}</title>
+        <title>{pageProps?.title ? `${pageProps.title} Soldex` : 'Soldex'}</title>
       </Head>
       <DynamicProviders>
         <MatchBreakpointsContext.Provider value={breakPoints}>

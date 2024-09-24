@@ -40,6 +40,7 @@ import { PriorityButton } from './components/PriorityButton'
 // import DisclaimerModal from './components/DisclaimerModal'
 import { keyframes } from '@emotion/react'
 import AppVersion from './AppVersion'
+import Image from 'next/image'
 
 export interface NavSettings {
   // colorTheme: 'dark' | 'light'
@@ -110,7 +111,8 @@ function AppNavLayout({
         flex="none"
         height={['64px', '80px']}
         px={['20px', '38px']}
-        gap={['4px', 'max(64px, 6.1vw)']}
+        gap='30px'
+        // gap={['4px', 'max(64px, 6.1vw)']}
         alignItems="center"
         justifyContent="space-between"
       >
@@ -118,14 +120,22 @@ function AppNavLayout({
         <Desktop>
           <Box flex={'none'}>
             <Link href="/swap">
-              MOON BOYS
+              {/* MOON BOYS */}
+              <Image src="/logo.svg" alt='logo' width={180} height={20} />
               {/* <RaydiumLogo /> */}
             </Link>
           </Box>
+          <Box flexGrow={1} />
+          <HStack justify="start" overflow={['auto', 'visible']} gap={1}>
+            <a href="https://moonboys-add-market-fe.vercel.app/create-market/" target='_blank' rel="noreferrer" >
+              Create Market
+            </a>
+          </HStack>
         </Desktop>
         <Mobile>
           <HStack>
-            <RaydiumLogoOutline />
+            <Image src="/logo.svg" alt='logo' width={120} height={20} />
+            {/* <RaydiumLogoOutline /> */}
             {/* <Text fontSize="xl" fontWeight="medium" color={colors.textSecondary}>
               {pathname === '/swap'
                 ? t('swap.title')
@@ -144,11 +154,6 @@ function AppNavLayout({
           </HStack>
         </Mobile>
 
-        <HStack flexGrow={1} justify="start" overflow={['auto', 'visible']} gap={15}>
-          <a href="https://moonboys-add-market-fe.vercel.app/create-market/" target='_blank' rel="noreferrer" >
-            Create Market
-          </a>
-        </HStack>
 
         {/* nav routes */}
         {/* <Desktop>
@@ -210,11 +215,11 @@ function AppNavLayout({
         {children}
       </Box>
       {/* <DisclaimerModal /> */}
-      <Mobile>
+      {/* <Mobile>
         <Box className="mobile_bottom_navbar" flex="none">
           <MobileBottomNavbar />
         </Box>
-      </Mobile>
+      </Mobile> */}
     </Flex>
   )
 }
