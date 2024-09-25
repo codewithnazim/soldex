@@ -136,7 +136,7 @@ const appInitState = {
   isLaptop: false,
   aprMode: 'M' as 'M' | 'D',
   rpcs: [],
-  rpcNodeUrl: 'http://basic.swqos.solanavibestation.com/?api_key=6232be4567d80a09f0dfe96a3dd4d406/',
+  rpcNodeUrl: 'https://empty-blue-fog.solana-mainnet.quiknode.pro/063c1328c63edf3b1c0d1486947b087cdafb6e8e/',
   urlConfigs: API_URLS,
   programIdConfig: ALL_PROGRAM_ID,
   jupTokenType: JupTokenType.Strict,
