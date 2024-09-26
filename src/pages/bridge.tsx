@@ -1,12 +1,14 @@
 import { useEffect, useRef } from "react";
 
 function Bridge() {
+  const scriptLoaded = useRef(false); // Track if the script has been loaded
   const widgetInitialized = useRef(false); // Track if the widget has been initialized
 
   useEffect(() => {
     const initializeWidget = () => {
+      // Check if deBridge is already available
       if (!window.deBridge) {
-        console.warn("deBridge is not available yet."); // Handle the case where deBridge is not loaded
+        console.warn("deBridge is not available yet.");
         return;
       }
 
@@ -17,7 +19,7 @@ function Bridge() {
         title: "",
         description: "",
         width: "600",
-        height: "800",
+        height: "600",
         r: null,
         supportedChains: JSON.stringify({
           inputChains: {
@@ -72,10 +74,12 @@ function Bridge() {
         logo: "",
         disabledWallets: []
       });
+
+      widgetInitialized.current = true; // Mark as initialized
     };
 
     // Load the deBridge script if it's not already loaded
-    if (!window.deBridge) {
+    if (!scriptLoaded.current) {
       const script = document.createElement('script');
       script.src = "https://v1.debridge.finance/assets/scripts/widget.js";
       script.async = true;
@@ -86,6 +90,7 @@ function Bridge() {
       };
 
       document.body.appendChild(script);
+      scriptLoaded.current = true; // Mark the script as loaded
 
       // Cleanup function to remove the script if the component unmounts
       return () => {
@@ -95,7 +100,6 @@ function Bridge() {
       // If the script is already loaded, just initialize the widget if not done before
       if (!widgetInitialized.current) {
         initializeWidget();
-        widgetInitialized.current = true; // Mark as initialized
       }
     }
   }, []); // Empty dependency array ensures this runs on mount
