@@ -142,10 +142,16 @@ function AppNavLayout({
             </Link>
           </Box>
           <Box flexGrow={1} />
-          <HStack justify="start" overflow={['auto', 'visible']} gap={1}>
-            <a href="https://market.soldex.so/create-market/" target='_blank' rel="noreferrer" >
+          <HStack justify="start" overflow={['auto', 'visible']} gap={30}>
+            <a href="https://market.soldex.so/create-market/">
               Create Market
             </a>
+            <Link href="/bridge" style={{ textDecoration: pathname === "/bridge" ? "underline" : 'unset' }}>
+              Bridge
+            </Link>
+            <Link href="/swap" style={{ textDecoration: pathname === "/swap" ? "underline" : 'unset' }}>
+              Swap
+            </Link>
           </HStack>
         </Desktop>
         <Mobile>
