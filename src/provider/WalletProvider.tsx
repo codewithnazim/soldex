@@ -37,7 +37,9 @@ initialize()
 const App: FC<PropsWithChildren<any>> = ({ children }) => {
   const [network] = useState<WalletAdapterNetwork>(defaultNetWork)
   const rpcNodeUrl = useAppStore((s) => s.rpcNodeUrl)
+  // console.log(rpcNodeUrl, "rpcNodeUrl")
   const wsNodeUrl = useAppStore((s) => s.wsNodeUrl)
+  // console.log(wsNodeUrl, "wsNodeUrl")
   // const [endpoint] = useState<string>(defaultEndpoint)
   const [endpoint, setEndpoint] = useState<string>(rpcNodeUrl || defaultEndpoint)
 
@@ -75,10 +77,10 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
           options: {
             projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PJ_ID,
             metadata: {
-              name: 'Raydium',
-              description: 'Raydium',
-              url: 'https://raydium.io/',
-              icons: ['https://raydium.io/logo/logo-only-icon.svg']
+              name: 'Soldex',
+              description: 'Soldex',
+              url: 'https://soldex.so/',
+              icons: ['/logo.svg']
             }
           }
         })
@@ -108,11 +110,11 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
       new BitpieWalletAdapter({ endpoint }),
       new BitgetWalletAdapter({ endpoint }),
       new ExodusWalletAdapter({ endpoint }),
-      new TipLinkWalletAdapter({
-        clientId: process.env.NEXT_PUBLIC_WALLET_TIP_WALLET_KEY ?? '',
-        title: 'Raydium',
-        theme: 'system'
-      })
+      // new TipLinkWalletAdapter({
+      //   clientId: process.env.NEXT_PUBLIC_WALLET_TIP_WALLET_KEY ?? '',
+      //   title: 'Raydium',
+      //   theme: 'system'
+      // })
     ],
     [network, endpoint]
   )

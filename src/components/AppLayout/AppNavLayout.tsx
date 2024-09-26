@@ -41,6 +41,9 @@ import { PriorityButton } from './components/PriorityButton'
 import { keyframes } from '@emotion/react'
 import AppVersion from './AppVersion'
 import Image from 'next/image'
+import { useEvent } from '@/hooks/useEvent'
+import { isValidUrl } from '@/utils/url'
+import { shallow } from 'zustand/shallow'
 
 export interface NavSettings {
   // colorTheme: 'dark' | 'light'
@@ -56,7 +59,20 @@ function AppNavLayout({
 }) {
   const { t } = useTranslation()
   const { pathname } = useRouter()
-
+  const [isMobile, rpcs, rpcNodeUrl, setRpcUrlAct] = useAppStore((s) => [s.isMobile, s.rpcs, s.rpcNodeUrl, s.setRpcUrlAct], shallow)
+  const customUrl = 'https://empty-blue-fog.solana-mainnet.quiknode.pro/063c1328c63edf3b1c0d1486947b087cdafb6e8e'
+  const handleSwitchCustomRpc = useEvent(async () => {
+    if (!isValidUrl(customUrl)) return
+    await setRpcUrlAct(customUrl)
+  })
+  React.useEffect(() => {
+    if (rpcNodeUrl !== customUrl) {
+      console.log("______SWITCHING___RPC____")
+      handleSwitchCustomRpc()
+    } else {
+      console.log("______HAS_CUSTOM_RPC____")
+    }
+  }, [])
   const betaTooltipRef = useRef<HTMLDivElement>(null)
   const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
   const closeBetaTooltip = () => {
@@ -127,7 +143,7 @@ function AppNavLayout({
           </Box>
           <Box flexGrow={1} />
           <HStack justify="start" overflow={['auto', 'visible']} gap={1}>
-            <a href="https://moonboys-add-market-fe.vercel.app/create-market/" target='_blank' rel="noreferrer" >
+            <a href="https://market.soldex.so/create-market/" target='_blank' rel="noreferrer" >
               Create Market
             </a>
           </HStack>
