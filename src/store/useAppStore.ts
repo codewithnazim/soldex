@@ -46,7 +46,7 @@ export const supportedExplorers = [
 
 const RPC_URL_KEY = 'https://empty-blue-fog.solana-mainnet.quiknode.pro/063c1328c63edf3b1c0d1486947b087cdafb6e8e/'
 const RPC_URL_PROD_KEY = 'https://empty-blue-fog.solana-mainnet.quiknode.pro/063c1328c63edf3b1c0d1486947b087cdafb6e8e/'
-export const FEE_KEY = 'ETC3RTDYHvqYUQrc2LkWj8qYgPYZKJYjFtBssoHsumwK'
+export const FEE_KEY = '2sXdXoeW2uFjiBMVuK6PSHH11j1KJxcuXeXWLoAeaBra'
 export const PRIORITY_LEVEL_KEY = '_r_fee_level_'
 export const PRIORITY_MODE_KEY = '_r_fee_mode_'
 export const USER_ADDED_KEY = '_r_u_added_'
