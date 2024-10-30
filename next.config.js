@@ -52,7 +52,7 @@ module.exports = withSentryConfig(module.exports, {
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
   org: 'ray-yr',
-  project: 'raydium-ui-v3',
+  project: 'soldex-ui',
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
